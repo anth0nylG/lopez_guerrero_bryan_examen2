@@ -17,6 +17,7 @@ const SigninScreen = ({ route, navigation }) => {
   const [isValidPassword, setIsValidPassword] = useState(true);
 
   const { signUp } = useContext(AuthContext);
+  
 
   const handleSignup = (username, email, password) => {
     const t = signUp(username, email, password);
