@@ -29,18 +29,44 @@ const SigninScreen = ({ route, navigation }) => {
   };*/
 
   const handleSignup = (username, email, password) => {
-    if () {
-      
-    }
+    
   };
 
-  function validarPass(passwd) {
-    const pass = RegExp('^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{6,10}$')
-    if (pass.test(passwd)) {
-      console.log("Contraseña válida");
-    } else {
-      console.log("Contraseña inválida");
+  function validarCedulaBALG(cedula) {
+    var total = 0;
+    var longitud = cedula.length;
+    var longcheck = longitud - 1;
+    var valido = false;
+
+    if (cedula !== "" && longitud === 10) {
+      for (let i = 0; i < longcheck; i++) {
+        if (i % 2 === 0) {
+          var aux = cedula.charAt(i) * 2;
+          if (aux > 9) aux -= 9;
+          total += aux;
+        } else {
+          total += parseInt(cedula.charAt(i));
+        }
+      }
+
+      total = total % 10 ? 10 - (total % 10) : 0;
+
+      if (cedula.charAt(longitud - 1) == total) {
+        valido = true;
+      } else {
+        valido = false;
+      }
     }
+    return valido;
+  }
+
+  function validarPassBALG(passwd) {
+    var myregex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!.%*?&])([A-Za-z\d$@$!%*?&]|[^ ]){6,10}$/; 
+    if (myregex.test(passwd)) {
+       return true;        
+    } else {
+      return false;        
+    }   
   }
 
   function notifyMessage(msg) {
