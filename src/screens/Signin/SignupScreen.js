@@ -95,7 +95,6 @@ const SigninScreen = ({ route, navigation }) => {
   function validarPassBALG(passwd) {
     var myregex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!.%*?&])([A-Za-z\d$@$!%*?&]|[^ ]){6,10}$/; 
     if (myregex.test(passwd)) {
-      con
        return true;        
     } else {
       return false;        
@@ -110,7 +109,7 @@ const SigninScreen = ({ route, navigation }) => {
 
   return (
     <View>
-      <Gap height={50} />
+      <Gap height={200} />
       <View style={styles.wrapperSlogan}>
         <Text style={styles.txtSlogan}>Crear Nuevo Usuario </Text>
       </View>
@@ -133,7 +132,6 @@ const SigninScreen = ({ route, navigation }) => {
         placeholder="Constraseña"
         style={styles.input}
         onChangeText={(text) => setPassword(text)}
-        secureTextEntry
       />
 
       {isValidUser ? null : (
