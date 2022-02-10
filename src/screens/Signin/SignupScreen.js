@@ -17,16 +17,25 @@ const SigninScreen = ({ route, navigation }) => {
   const [isValidPassword, setIsValidPassword] = useState(true);
 
   const { signUp } = useContext(AuthContext);
-  
 
-  const handleSignup = (username, email, password) => {
+
+  /*const handleSignup = (username, email, password) => {
     const t = signUp(username, email, password);
     if (t != undefined) {
       setCreado(true);
       notifyMessage("Usuario creado correctamente");
       navigation.navigate("GetStarted");
     }
+  };*/
+
+  const handleSignup = (username, email, password) => {
+    
   };
+
+  function validarPass() {
+    const pass = RegExp(`^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,16}$`)
+    
+  }
 
   function notifyMessage(msg) {
     Alert.alert("Aviso", msg, [
