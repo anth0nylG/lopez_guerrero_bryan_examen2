@@ -20,7 +20,7 @@ const SigninScreen = ({ route, navigation }) => {
 
   const { signUp } = useContext(AuthContext);
 
-  const [mails, setEmail] = useState([])
+  const [mails, setMails] = useState([])
 
   useEffect(() => {
     fetchUsers();
@@ -44,6 +44,10 @@ const SigninScreen = ({ route, navigation }) => {
     const isValidCedula = validarCedulaBALG(username)
     const isValidPass = validarPassBALG(password)
     const isValidEmail = validarEmailBALG(email)
+
+    console.log('la cedula', isValidCedula)
+    console.log('el pass', isValidPass)
+    console.log('el email', isValidEmail)
   };
 
   const validarEmailBALG = (email) => {
@@ -82,6 +86,7 @@ const SigninScreen = ({ route, navigation }) => {
   function validarPassBALG(passwd) {
     var myregex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!.%*?&])([A-Za-z\d$@$!%*?&]|[^ ]){6,10}$/; 
     if (myregex.test(passwd)) {
+      con
        return true;        
     } else {
       return false;        
