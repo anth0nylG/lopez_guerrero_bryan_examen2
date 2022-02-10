@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { StyleSheet, Text, View, TextInput, Alert } from "react-native";
 import { colors } from "../../assets";
 import { Button, Gap } from "../../components/atoms";
+import { Header } from "../../components/molecules";
 
 import { AuthContext } from "../../components/context";
 
@@ -109,7 +110,8 @@ const SigninScreen = ({ route, navigation }) => {
 
   return (
     <View>
-      <Gap height={200} />
+      <Gap height={50} />
+      <Header onPressBack={() => navigation.navigate("GetStarted")} />
       <View style={styles.wrapperSlogan}>
         <Text style={styles.txtSlogan}>Crear Nuevo Usuario </Text>
       </View>

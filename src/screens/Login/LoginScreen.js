@@ -47,6 +47,9 @@ const Login = ({ navigation }) => {
 
       <Gap height={30} />
 
+      <Text style={styles.Text}>La compra del dia </Text>
+      <Text style={styles.Text}>en una APP</Text>
+
       <TextInput
         placeholder="Correo electronico"
         style={styles.input}
