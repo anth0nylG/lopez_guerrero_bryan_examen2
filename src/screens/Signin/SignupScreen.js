@@ -8,8 +8,6 @@ import { AuthContext } from "../../components/context";
 
 import { getUsers } from '../../api'
 
-// SigninScreen
-
 const SigninScreen = ({ route, navigation }) => {
   const [email, setEmail] = useState("");
   const [userName, setUserName] = useState("");
