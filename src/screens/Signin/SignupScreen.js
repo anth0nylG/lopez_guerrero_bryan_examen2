@@ -1,9 +1,11 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { StyleSheet, Text, View, TextInput, Alert } from "react-native";
 import { colors } from "../../assets";
 import { Button, Gap } from "../../components/atoms";
 
 import { AuthContext } from "../../components/context";
+
+import { getUsers } from '../../api'
 
 // SigninScreen
 
@@ -18,19 +20,36 @@ const SigninScreen = ({ route, navigation }) => {
 
   const { signUp } = useContext(AuthContext);
 
+  const [mails, setEmail] = useState([])
 
-  /*const handleSignup = (username, email, password) => {
-    const t = signUp(username, email, password);
+  useEffect(() => {
+    fetchUsers();
+
+  }, [])
+
+  const fetchUsers = async () => {
+    const rta = await getUsers()
+    const mails = rta.map(user => user.email)
+    setMails(mails)
+  }
+
+  const handleSignup = (username, email, password) => {
+    /*const t = signUp(username, email, password);
     if (t != undefined) {
       setCreado(true);
       notifyMessage("Usuario creado correctamente");
       navigation.navigate("GetStarted");
-    }
-  };*/
+    }*/
 
-  const handleSignup = (username, email, password) => {
-    
+    const isValidCedula = validarCedulaBALG(username)
+    const isValidPass = validarPassBALG(password)
+    const isValidEmail = validarEmailBALG(email)
   };
+
+  const validarEmailBALG = (email) => {
+    const exist = mails.some(mail => mail === email);
+    return !exist;
+  }
 
   function validarCedulaBALG(cedula) {
     var total = 0;
