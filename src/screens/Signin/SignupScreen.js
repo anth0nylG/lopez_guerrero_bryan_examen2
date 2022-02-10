@@ -41,13 +41,22 @@ const SigninScreen = ({ route, navigation }) => {
       navigation.navigate("GetStarted");
     }*/
 
-    const isValidCedula = validarCedulaBALG(username)
-    const isValidPass = validarPassBALG(password)
-    const isValidEmail = validarEmailBALG(email)
+    const validarCedula = validarCedulaBALG(username)
+    const validarPass = validarPassBALG(password)
+    const validarEmail = validarEmailBALG(email)
 
-    console.log('la cedula', isValidCedula)
-    console.log('el pass', isValidPass)
-    console.log('el email', isValidEmail)
+    /*console.log('la cedula', validarCedula)
+    console.log('el pass', validarPass)
+    console.log('el email', validarEmail)*/
+
+    if (validarCedula && validarPass && validarEmail) {
+      const rta = signUp(username, email, password);
+      rta.then(console.log);
+      notifyMessage("Usuario creado correctamente");
+      navigation.navigate("GetStarted");
+    } else {
+      notifyMessage("Los datos de ingreso estan incorrectos");
+    }
   };
 
   const validarEmailBALG = (email) => {
@@ -101,7 +110,7 @@ const SigninScreen = ({ route, navigation }) => {
 
   return (
     <View>
-      <Gap height={200} />
+      <Gap height={50} />
       <View style={styles.wrapperSlogan}>
         <Text style={styles.txtSlogan}>Crear Nuevo Usuario </Text>
       </View>
