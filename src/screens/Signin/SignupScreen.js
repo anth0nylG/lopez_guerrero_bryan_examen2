@@ -29,12 +29,18 @@ const SigninScreen = ({ route, navigation }) => {
   };*/
 
   const handleSignup = (username, email, password) => {
-    
+    if () {
+      
+    }
   };
 
-  function validarPass() {
-    const pass = RegExp(`^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,16}$`)
-    
+  function validarPass(passwd) {
+    const pass = RegExp('^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{6,10}$')
+    if (pass.test(passwd)) {
+      console.log("Contraseña válida");
+    } else {
+      console.log("Contraseña inválida");
+    }
   }
 
   function notifyMessage(msg) {
